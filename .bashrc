@@ -1,3 +1,4 @@
+#!/bin/bash
 # Load the default .bashrc file.
 if [ -f ~/.bashrc_default ]; then
     . ~/.bashrc_default
@@ -13,3 +14,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Load the .bash functions file.
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
