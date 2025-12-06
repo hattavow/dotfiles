@@ -27,13 +27,6 @@ if [ -x "/usr/local/go" ]; then
     export PATH=$PATH:$HOME/go/bin
 fi
 
-# Settings for tfenv.
-if [ -d "$HOME/.tfenv" ]; then
-    export PATH=$PATH:$HOME/.tfenv/bin
-    # TODO: Adjust other environment.
-    complete -C /home/linuxbrew/.linuxbrew/Cellar/tfenv/3.0.0/versions/1.8.5/terraform terraform
-fi
-
 # Settings for linuxbrew.
 if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
