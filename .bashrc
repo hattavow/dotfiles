@@ -23,36 +23,26 @@ if command -v vim >/dev/null 2>&1; then
     export EDITOR=/usr/bin/vim
 fi
 
-# Settings for pyenv.
-if command -v pyenv >/dev/null 2>&1; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
-
 # Settings for pipx.
-if command -v pipx >/dev/null 2>&1; then
-    # Created by `pipx` on 2024-06-01 06:55:15
-    # Modify default PATH added by pipx.
-    export PATH="$PATH:$HOME/.local/bin"
-fi
+# Created by `pipx` on 2024-06-01 06:55:15
+# Modify default PATH added by pipx.
+export PATH="$PATH:$HOME/.local/bin"
 
 # Settings for golang.
-if command -v go >/dev/null 2>&1; then
-    export PATH=$PATH:/usr/local/go/bin
-    export PATH=$PATH:$HOME/go/bin
-fi
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
 
 # Settings for linuxbrew.
-if command -v brew >/dev/null 2>&1; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Settings for pyenv.
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Settings for Volta.
-if command -v volta >/dev/null 2>&1; then
-    export VOLTA_HOME="$HOME/.volta"
-    export PATH="$VOLTA_HOME/bin:$PATH"
-fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 # Settings for kubectl.
 if command -v kubectl >/dev/null 2>&1; then
