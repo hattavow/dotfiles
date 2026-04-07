@@ -11,24 +11,15 @@ function discord-update() {
 
 # tmux split panes
 function ts() {
-    local panes=${1:?"Usage: ts <2|3|4> [session_name]"}
-    local session_name="$2"
+    local session_name=${1:?"Usage: ts <session_name> [2|3|4]"}
+    local panes=${2:-1}
 
-    if [[ ! "$panes" =~ ^[234]$ ]]; then
-        echo "Error: panes must be 2, 3, or 4" >&2
+    if [[ ! "$panes" =~ ^[1234]$ ]]; then
+        echo "Error: panes must be 1, 2, 3, or 4" >&2
         return 1
     fi
 
-    local cmd=(tmux new-session -d)
-    if [[ -n "$session_name" ]]; then
-        cmd+=(-s "$session_name")
-    fi
-    "${cmd[@]}"
-
-    # Get session name (for default case)
-    if [[ -z "$session_name" ]]; then
-        session_name=$(tmux display-message -p '#{session_name}')
-    fi
+    tmux new-session -d -s "$session_name"
 
     # Split the window into the specified number of panes
     local i
