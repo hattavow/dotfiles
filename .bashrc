@@ -15,6 +15,14 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
+# Bash history settings.
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT="%F %T "
+PROMPT_COMMAND="history -a"
+shopt -s histappend
+
 # System management.
 export LC_TIME="en_US.UTF-8"
 
